@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DARKPIX.RU — Portfolio
 
-## Getting Started
+Personal portfolio of a frontend developer. Built with **Next.js**, **Tailwind CSS**, and **TypeScript**.
 
-First, run the development server:
+🔗 **Live**: [https://darkpix.ru](https://darkpix.ru) *(или GitHub Pages URL)*
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## About
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+I'm a self-taught developer with a passion for clean code and modern web technologies. My journey started back in **2017** with JavaScript and bot scripting for VK, then moved into HTML/CSS in **2018**, discovered React & Next.js in **2022**, and now I'm focused on becoming a fullstack developer while building my own projects.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## What's on the site
 
-To learn more about Next.js, take a look at the following resources:
+| Section | Description |
+|---------|-------------|
+| **Hero** | Full-screen intro with animated background and call-to-action buttons |
+| **About** | Quick stats and a short bio |
+| **Skills** | Tech stack with custom glow effects (React, Next.js, TypeScript, Tailwind, JavaScript, Git) |
+| **Projects** | Featured projects with image placeholders and tech badges |
+| **Experience** | Interactive timeline from 2017 to 2026 |
+| **Contact** | Email button and social links (GitHub, VK, Telegram, Discord) |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Tech Stack
 
-## Deploy on Vercel
+- **Framework**: [Next.js](https://nextjs.org/) 16
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) v4
+- **UI**: [shadcn/ui](https://ui.shadcn.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/) + [React Icons](https://react-icons.github.io/react-icons/)
+- **Language**: TypeScript
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contact
+
+- **Email**: [vlad.borodaty228032qw@gmail.com](mailto:vlad.borodaty228032qw@gmail.com)
+- **GitHub**: [@DARKPIX404](https://github.com/DARKPIX404)
+- **VK**: [vk.com/v_darkpix](https://vk.com/v_darkpix)
+- **Telegram**: [t.me/v_darkpix](https://t.me/v_darkpix)
+- **Discord**: [discord.gg/xBvRgsJEZV](https://discord.gg/xBvRgsJEZV)
+
+---
+
+## Deployment
+
+The site is automatically deployed to **GitHub Pages** via GitHub Actions on every push to `main`.
