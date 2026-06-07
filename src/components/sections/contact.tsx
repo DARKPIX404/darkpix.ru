@@ -4,6 +4,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import * as SiIcons from "react-icons/si";
 import * as LucideIcons from "lucide-react";
+import { useLanguage } from "@/components/language-provider";
+import { getTranslation } from "@/lib/i18n";
 
 interface ContactItem {
   id: string;
@@ -16,7 +18,7 @@ const contactsData: ContactItem[] = [
   { id: "1", platform: "GitHub", url: "https://github.com/DARKPIX404", icon: "SiGithub" },
   { id: "2", platform: "VK", url: "https://vk.com/v_darkpix", icon: "SiVk" },
   { id: "3", platform: "Telegram", url: "https://t.me/v_darkpix", icon: "SiTelegram" },
-  { id: "4", platform: "Discord", url: "https://discord.gg/xBvRgsJEZV", icon: "SiDiscord" },
+  { id: "4", platform: "Discord", url: "https://discord.gg/dYkUJQaU6y", icon: "SiDiscord" },
 ];
 
 function getIcon(iconName: string | null) {
@@ -35,6 +37,9 @@ function renderIcon(iconName: string | null, className?: string) {
 }
 
 export function Contact() {
+  const { lang } = useLanguage();
+  const t = getTranslation(lang);
+
   return (
     <section id="contact" className="py-14">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -46,13 +51,13 @@ export function Contact() {
           className="text-center max-w-xl mx-auto mb-10"
         >
           <p className="text-blue-400 text-sm font-medium tracking-wider uppercase mb-2">
-            Let&apos;s Connect
+            {t("contactTitle")}
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Get in touch
+            {t("contactHeading")}
           </h2>
           <p className="text-slate-400">
-            I&apos;m open to new opportunities and interesting projects.
+            {t("contactText")}
           </p>
         </motion.div>
 
@@ -63,10 +68,8 @@ export function Contact() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="flex flex-col items-center gap-6"
         >
-          {/* Glowing border button */}
-          <a href="mailto:v.borodatyi@darkpix.ru" className="group relative">
+          <a href="mailto:vlad.borodaty228032qw@gmail.com" className="group relative">
             <span className="absolute inset-0 rounded-lg bg-blue-500/10 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
             <span className="relative inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-[#06071d] text-slate-200 text-sm font-medium transition-colors duration-300 group-hover:text-blue-300 font-mono tracking-wide">
               <span
                 className="absolute top-0 left-[10%] right-[10%] h-px opacity-60 group-hover:opacity-100 transition-opacity"
@@ -100,9 +103,8 @@ export function Contact() {
                   boxShadow: "0 0 5px rgba(59,130,246,0.15)",
                 }}
               />
-
               {renderIcon("Mail", "w-4 h-4")}
-              Contact Me
+              {t("contactBtn")}
             </span>
           </a>
 

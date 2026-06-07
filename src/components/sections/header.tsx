@@ -4,18 +4,23 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-
-const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#contact", label: "Contact" },
-];
+import { LanguageSwitcher } from "@/components/language-switcher";
+import { useLanguage } from "@/components/language-provider";
+import { getTranslation } from "@/lib/i18n";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { lang } = useLanguage();
+  const t = getTranslation(lang);
+
+  const navLinks = [
+    { href: "#about", label: t("navAbout") },
+    { href: "#skills", label: t("navSkills") },
+    { href: "#projects", label: t("navProjects") },
+    { href: "#experience", label: t("navExperience") },
+    { href: "#contact", label: t("navContact") },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -42,13 +47,16 @@ export function Header() {
               className="group relative px-3 py-2 text-sm text-slate-400 hover:text-blue-400 transition-colors"
             >
               {link.label}
-              {/* Gradient underline that fades to the right */}
               <span className="absolute bottom-0 left-3 right-3 h-px bg-gradient-to-r from-blue-500 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
             </Link>
           ))}
+          <LanguageSwitcher />
         </nav>
 
         <div className="flex items-center gap-2">
+          <div className="md:hidden">
+            <LanguageSwitcher />
+          </div>
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger className="p-2 text-slate-400 hover:text-blue-400 cursor-pointer md:hidden">
               <Menu className="w-5 h-5" />

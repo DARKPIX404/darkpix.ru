@@ -6,49 +6,62 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import { useLanguage } from "@/components/language-provider";
+import { getTranslation, type TranslationKey } from "@/lib/i18n";
 
 interface Project {
   id: string;
-  title: string;
-  description: string;
+  titleKey: TranslationKey;
+  descKey: TranslationKey;
   image: string | null;
   liveUrl: string | null;
   githubUrl: string | null;
   stack: string;
 }
 
-const projectsData: Project[] = [
-  {
-    id: "1",
-    title: "Portfolio Website",
-    description: "Personal portfolio built with Next.js and Tailwind CSS.",
-    image: "/portfolio-project.png",
-    liveUrl: "#",
-    githubUrl: "#",
-    stack: "Next.js,Tailwind",
-  },
-  {
-    id: "2",
-    title: "Task Manager App",
-    description: "Fullstack task manager with auth and real-time features.",
-    image: null,
-    liveUrl: "#",
-    githubUrl: "#",
-    stack: "React,MongoDB,Tailwind",
-  },
-  {
-    id: "3",
-    title: "DevTools Dashboard",
-    description: "Analytics dashboard for developers with modern UI.",
-    image: null,
-    liveUrl: "#",
-    githubUrl: "#",
-    stack: "React,Recharts,Tailwind",
-  },
-];
-
 export function Projects() {
+  const { lang } = useLanguage();
+  const t = getTranslation(lang);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  const projectsData: Project[] = [
+    {
+      id: "1",
+      titleKey: "project1Title",
+      descKey: "project1Desc",
+      image: "/portfolio-project.png",
+      liveUrl: "https://darkpix.ru",
+      githubUrl: "https://github.com/DARKPIX404/darkpix.ru",
+      stack: "Next.js,Tailwind,TypeScript",
+    },
+    {
+      id: "2",
+      titleKey: "project2Title",
+      descKey: "project2Desc",
+      image: null,
+      liveUrl: null,
+      githubUrl: "https://github.com/DARKPIX404/supercell-api",
+      stack: "JavaScript,Node.js,API",
+    },
+    {
+      id: "3",
+      titleKey: "project3Title",
+      descKey: "project3Desc",
+      image: null,
+      liveUrl: null,
+      githubUrl: "#",
+      stack: "React,TypeScript,Tailwind",
+    },
+    {
+      id: "4",
+      titleKey: "project4Title",
+      descKey: "project4Desc",
+      image: null,
+      liveUrl: null,
+      githubUrl: "#",
+      stack: "Next.js,API,Charts",
+    },
+  ];
 
   const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
     if (!scrollRef.current) return;
@@ -67,7 +80,7 @@ export function Projects() {
     }
   };
 
-  const useCarousel = projectsData.length > 4;
+  const useCarousel = projectsData.length > 3;
 
   return (
     <section id="projects" className="py-14">
@@ -81,10 +94,10 @@ export function Projects() {
         >
           <div>
             <p className="text-blue-400 text-sm font-medium tracking-wider uppercase mb-2">
-              Featured Projects
+              {t("projectsTitle")}
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-white">
-              Some of my recent work
+              {t("projectsHeading")}
             </h2>
           </div>
           {useCarousel && (
@@ -119,9 +132,9 @@ export function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="snap-start shrink-0 w-75 sm:w-85"
+                className="snap-start shrink-0 w-72 sm:w-80"
               >
-                <ProjectCard project={project} />
+                <ProjectCard project={project} lang={lang} />
               </motion.div>
             ))}
           </div>
@@ -135,7 +148,7 @@ export function Projects() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <ProjectCard project={project} />
+                <ProjectCard project={project} lang={lang} />
               </motion.div>
             ))}
           </div>
@@ -145,15 +158,15 @@ export function Projects() {
   );
 }
 
-function ProjectImage({ project }: { project: Project }) {
+function ProjectImage({ image, title }: { image: string | null; title: string }) {
   const [error, setError] = useState(false);
   const handleError = useCallback(() => setError(true), []);
 
-  if (!project.image || error) {
+  if (!image || error) {
     return (
       <div className="absolute inset-0 flex items-center justify-center bg-[#0a0a0f]">
-        <div className="text-slate-500 text-2xl font-bold tracking-wider text-center px-4">
-          {project.title}
+        <div className="text-slate-500 text-2xl font-bold tracking-wider text-center px-4 break-words">
+          {title}
         </div>
       </div>
     );
@@ -161,8 +174,8 @@ function ProjectImage({ project }: { project: Project }) {
 
   return (
     <Image
-      src={project.image}
-      alt={project.title}
+      src={image}
+      alt={title}
       fill
       className="object-cover transition-transform duration-500 group-hover:scale-105"
       unoptimized
@@ -171,17 +184,21 @@ function ProjectImage({ project }: { project: Project }) {
   );
 }
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project, lang }: { project: Project; lang: string }) {
+  const t = getTranslation(lang as "en" | "ru");
+  const title = t(project.titleKey);
+  const description = t(project.descKey);
+
   return (
     <Card className="bg-[#0f111a] border-slate-800 overflow-hidden hover:border-blue-500/30 transition-all group h-full flex flex-col">
       <div className="aspect-video bg-[#0a0a0f] relative overflow-hidden">
-        <ProjectImage project={project} />
+        <ProjectImage image={project.image} title={title} />
         <div className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/10 transition-colors" />
       </div>
 
       <CardContent className="p-5 flex flex-col flex-1">
-        <h3 className="text-lg font-semibold text-white mb-2">{project.title}</h3>
-        <p className="text-sm text-slate-400 mb-4 flex-1">{project.description}</p>
+        <h3 className="text-lg font-semibold text-white mb-2">{title}</h3>
+        <p className="text-sm text-slate-400 mb-4 flex-1">{description}</p>
 
         <div className="flex flex-wrap gap-2 mb-4">
           {project.stack.split(",").map((tech) => (
@@ -204,7 +221,7 @@ function ProjectCard({ project }: { project: Project }) {
               className="inline-flex items-center text-sm text-blue-400 hover:text-blue-300 transition-colors"
             >
               <ExternalLink className="w-3.5 h-3.5 mr-1" />
-              Live Demo
+              {t("projectLiveDemo")}
             </a>
           )}
           {project.githubUrl && (
@@ -215,7 +232,7 @@ function ProjectCard({ project }: { project: Project }) {
               className="inline-flex items-center text-sm text-slate-400 hover:text-white transition-colors"
             >
               <Github className="w-3.5 h-3.5 mr-1" />
-              GitHub
+              {t("projectGitHub")}
             </a>
           )}
         </div>

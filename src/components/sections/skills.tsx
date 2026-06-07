@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import * as SiIcons from "react-icons/si";
+import { useLanguage } from "@/components/language-provider";
+import { getTranslation } from "@/lib/i18n";
 
 const skillsData = [
   { id: "1", name: "React", icon: "SiReact", glowColor: "#61DAFB", category: "frontend" },
@@ -13,6 +15,9 @@ const skillsData = [
 ];
 
 export function Skills() {
+  const { lang } = useLanguage();
+  const t = getTranslation(lang);
+
   return (
     <section id="skills" className="py-14">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -24,10 +29,10 @@ export function Skills() {
           className="mb-8"
         >
           <p className="text-blue-400 text-sm font-medium tracking-wider uppercase mb-2">
-            Skills
+            {t("skillsTitle")}
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            Technologies I work with
+            {t("skillsHeading")}
           </h2>
         </motion.div>
 
@@ -65,7 +70,7 @@ export function Skills() {
                     e.currentTarget.style.borderColor = "rgb(30 41 59)";
                   }}
                 >
-                  {IconComp && <IconComp className="w-7 h-7" style={{ color }} />}
+                  {IconComp && <IconComp className="w-7 h-7 shrink-0" style={{ color }} />}
                   <span className="text-base font-medium">{skill.name}</span>
                 </div>
               </motion.div>
