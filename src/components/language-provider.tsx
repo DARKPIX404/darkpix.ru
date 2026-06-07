@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import type { Lang } from "@/lib/i18n";
 
 interface LanguageContextValue {
@@ -12,6 +12,13 @@ const LanguageContext = createContext<LanguageContextValue>({
   lang: "en",
   setLang: () => {},
 });
+
+function detectBrowserLang(): Lang {
+  if (typeof navigator === "undefined") return "en";
+  const browserLang = navigator.language || "en";
+  if (browserLang.toLowerCase().startsWith("ru")) return "ru";
+  return "en";
+}
 
 export function LanguageProvider({
   children,
@@ -26,8 +33,12 @@ export function LanguageProvider({
     if (saved && (saved === "en" || saved === "ru")) {
       return saved;
     }
-    return defaultLang;
+    return detectBrowserLang();
   });
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   const setLang = (newLang: Lang) => {
     setLangState(newLang);
