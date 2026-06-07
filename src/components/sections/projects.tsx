@@ -49,7 +49,7 @@ export function Projects() {
       descKey: "project3Desc",
       image: null,
       liveUrl: null,
-      githubUrl: "#",
+      githubUrl: "https://github.com/DARKPIX404/react-password-generator",
       stack: "React,TypeScript,Tailwind",
     },
     {
@@ -58,7 +58,7 @@ export function Projects() {
       descKey: "project4Desc",
       image: null,
       liveUrl: null,
-      githubUrl: "#",
+      githubUrl: "https://github.com/DARKPIX404/nextjs-weather-dashboard",
       stack: "Next.js,API,Charts",
     },
   ];
