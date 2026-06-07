@@ -39,9 +39,9 @@ export function Projects() {
       titleKey: "project2Title",
       descKey: "project2Desc",
       image: null,
-      liveUrl: null,
+      liveUrl: "https://darkpix404.github.io/supercell-api/",
       githubUrl: "https://github.com/DARKPIX404/supercell-api",
-      stack: "JavaScript,Node.js,API",
+      stack: "TypeScript,Node.js,API",
     },
     {
       id: "3",
