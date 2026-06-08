@@ -101,16 +101,18 @@ export function Projects() {
             </h2>
           </div>
           {useCarousel && (
-            <div className="hidden sm:flex gap-2">
+            <div className="hidden md:flex shrink-0 ml-6 gap-3">
               <button
                 onClick={() => scrollBy(-320)}
                 className="p-2 rounded-lg border border-slate-800 text-slate-400 hover:text-white hover:border-slate-600 transition-colors"
+                aria-label="Scroll left"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={() => scrollBy(320)}
                 className="p-2 rounded-lg border border-slate-800 text-slate-400 hover:text-white hover:border-slate-600 transition-colors"
+                aria-label="Scroll right"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
