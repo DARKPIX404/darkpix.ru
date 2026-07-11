@@ -61,6 +61,15 @@ export function Projects() {
       githubUrl: "https://github.com/DARKPIX404/nextjs-weather-dashboard",
       stack: "Next.js,API,Charts",
     },
+    {
+      id: "5",
+      titleKey: "project5Title",
+      descKey: "project5Desc",
+      image: "/paperscript-cover.svg",
+      liveUrl: "/paperscript/",
+      githubUrl: "https://github.com/DARKPIX404/PaperScript",
+      stack: "Java,GraalJS,TypeScript,Paper",
+    },
   ];
 
   const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
