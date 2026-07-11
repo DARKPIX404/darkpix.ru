@@ -248,9 +248,9 @@ export function PaperScriptPage() {
           <Link href="/" className="text-sm font-semibold text-slate-300 tracking-wider hover:text-blue-400 transition-colors">
             DARKPIX.RU
           </Link>
-          <p className="text-xs text-slate-600">PaperScript · MIT · &copy; {new Date().getFullYear()} DARKPIX404</p>
+          <p className="text-xs text-slate-600">PaperScript · MIT · &copy; {new Date().getFullYear()} DARKPIX</p>
           <a
-            href="https://discord.gg/dYkUJQaU6y"
+            href="https://discord.gg/vibecoders"
             target="_blank"
             rel="noopener noreferrer"
             className="text-slate-400 hover:text-blue-400 transition-colors"
