@@ -17,9 +17,6 @@ export function Footer() {
         <p className="text-sm text-slate-500">
           &copy; {new Date().getFullYear()} Darkpix. {t("footerRights")}
         </p>
-        <p className="text-xs text-slate-600">
-          {t("footerBuilt")}
-        </p>
       </div>
     </footer>
   );

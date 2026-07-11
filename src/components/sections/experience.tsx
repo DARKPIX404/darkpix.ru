@@ -42,78 +42,50 @@ export function Experience() {
           </h2>
         </motion.div>
 
-        <div className="hidden lg:block relative">
-          <div className="absolute top-[14px] left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
-          <div className="grid grid-cols-6 gap-4 relative">
-            {experiencesData.map((exp, i) => (
+        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-y-8 md:gap-x-8">
+          {/* Desktop center line */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-px bg-gradient-to-b from-blue-500/50 via-blue-500/30 to-transparent" />
+
+          {/* Mobile left line */}
+          <div className="md:hidden absolute left-3 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500/50 via-blue-500/30 to-transparent" />
+
+          {experiencesData.map((exp, i) => {
+            const isLeft = i < 3;
+
+            return (
               <motion.div
                 key={exp.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="relative pt-8"
+                className={`relative pl-10 md:pl-0 ${
+                  isLeft
+                    ? "md:col-start-1 md:text-right md:pr-10"
+                    : "md:col-start-2 md:pl-10"
+                }`}
               >
-                <div className="absolute top-[10px] left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-[#02040a]" />
-                <div className="text-center">
-                  <span className="inline-block text-blue-400 font-bold text-lg mb-2">
-                    {exp.year}
-                  </span>
-                  <h3 className="text-white font-semibold mb-1 text-sm leading-tight">{t(exp.titleKey)}</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">{t(exp.descKey)}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+                {/* Dot */}
+                <div
+                  className={`absolute top-1.5 w-3 h-3 rounded-full bg-blue-500 ring-4 ring-[#02040a] ${
+                    isLeft
+                      ? "left-[7px] md:left-auto md:right-[-6px]"
+                      : "left-[7px] md:left-[-6px]"
+                  }`}
+                />
 
-        <div className="hidden md:grid lg:hidden relative">
-          <div className="absolute top-[14px] left-[16.666%] right-[16.666%] h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
-          <div className="absolute top-[calc(50%+14px)] left-[16.666%] right-[16.666%] h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
-          <div className="grid grid-cols-3 gap-8 relative">
-            {experiencesData.map((exp, i) => (
-              <motion.div
-                key={exp.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={`relative pt-8 ${i >= 3 ? "mt-8" : ""}`}
-              >
-                <div className="absolute top-[10px] left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-[#02040a]" />
-                <div className="text-center">
-                  <span className="inline-block text-blue-400 font-bold text-lg mb-2">
-                    {exp.year}
-                  </span>
-                  <h3 className="text-white font-semibold mb-1">{t(exp.titleKey)}</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">{t(exp.descKey)}</p>
-                </div>
+                <span className="inline-block text-blue-400 font-bold text-lg mb-1">
+                  {exp.year}
+                </span>
+                <h3 className="text-white font-semibold mb-1">
+                  {t(exp.titleKey)}
+                </h3>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  {t(exp.descKey)}
+                </p>
               </motion.div>
-            ))}
-          </div>
-        </div>
-
-        <div className="md:hidden relative">
-          <div className="absolute left-3 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500/50 via-blue-500/30 to-transparent" />
-          <div className="space-y-8">
-            {experiencesData.map((exp, i) => (
-              <motion.div
-                key={exp.id}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.12 }}
-                className="relative pl-10"
-              >
-                <div className="absolute left-[7px] top-1.5 w-2 h-2 rounded-full bg-blue-500 ring-4 ring-[#02040a]" />
-                <div>
-                  <span className="text-blue-400 font-bold text-sm">{exp.year}</span>
-                  <h3 className="text-white font-semibold mt-0.5">{t(exp.titleKey)}</h3>
-                  <p className="text-slate-400 text-sm mt-1">{t(exp.descKey)}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>

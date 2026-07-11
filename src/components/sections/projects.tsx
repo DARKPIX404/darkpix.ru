@@ -30,7 +30,7 @@ export function Projects() {
       titleKey: "project1Title",
       descKey: "project1Desc",
       image: "/portfolio-project.png",
-      liveUrl: "https://darkpix.ru",
+      liveUrl: null,
       githubUrl: "https://github.com/DARKPIX404/darkpix.ru",
       stack: "Next.js,Tailwind,TypeScript",
     },

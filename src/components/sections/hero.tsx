@@ -2,11 +2,10 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Mail } from "lucide-react";
+import { ArrowDown, Send } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../../../public/darkpix-logo.png";
-import heroBg from "../../../public/hero-background.png";
 import { useLanguage } from "@/components/language-provider";
 import { getTranslation } from "@/lib/i18n";
 
@@ -18,7 +17,7 @@ export function Hero() {
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       <div className="absolute inset-0 top-14">
         <Image
-          src={heroBg}
+          src="/hero-background.png"
           alt="Hero Background"
           fill
           className="hidden object-cover object-center lg:block"
@@ -51,12 +50,16 @@ export function Hero() {
                   {t("heroViewProjects")}
                 </Button>
               </Link>
-              <Link href="#contact">
+              <a
+                href="https://t.me/v_darkpix"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button variant="outline" className="border-slate-600/50 text-slate-200 hover:bg-slate-800/50 hover:text-white px-6 py-5 text-base backdrop-blur-sm bg-slate-900/20">
-                  <Mail className="w-4 h-4 mr-2" />
+                  <Send className="w-4 h-4 mr-2" />
                   {t("heroContactMe")}
                 </Button>
-              </Link>
+              </a>
             </div>
           </motion.div>
 

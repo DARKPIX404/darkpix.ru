@@ -9,8 +9,34 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://darkpix.ru"),
   title: "DARKPIX.RU | Frontend Developer",
   description: "I build fast, modern and responsive web applications using React, Next.js and other cool technologies.",
+  openGraph: {
+    title: "DARKPIX.RU | Frontend Developer",
+    description: "I build fast, modern and responsive web applications using React, Next.js and other cool technologies.",
+    url: "https://darkpix.ru",
+    siteName: "DARKPIX.RU",
+    images: [
+      {
+        url: "/darkpix-logo.png",
+        width: 512,
+        height: 512,
+        alt: "DARKPIX.RU",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DARKPIX.RU | Frontend Developer",
+    description: "I build fast, modern and responsive web applications using React, Next.js and other cool technologies.",
+    images: ["/darkpix-logo.png"],
+  },
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

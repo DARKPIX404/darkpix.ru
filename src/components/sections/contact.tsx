@@ -68,7 +68,12 @@ export function Contact() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="flex flex-col items-center gap-6"
         >
-          <a href="mailto:vlad.borodaty228032qw@gmail.com" className="group relative">
+          <a
+            href="https://t.me/v_darkpix"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative"
+          >
             <span className="absolute inset-0 rounded-lg bg-blue-500/10 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <span className="relative inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-[#06071d] text-slate-200 text-sm font-medium transition-colors duration-300 group-hover:text-blue-300 font-mono tracking-wide">
               <span
@@ -103,7 +108,7 @@ export function Contact() {
                   boxShadow: "0 0 5px rgba(59,130,246,0.15)",
                 }}
               />
-              {renderIcon("Mail", "w-4 h-4")}
+              {renderIcon("Send", "w-4 h-4")}
               {t("contactBtn")}
             </span>
           </a>
