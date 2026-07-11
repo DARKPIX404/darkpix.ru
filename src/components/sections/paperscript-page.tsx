@@ -24,25 +24,28 @@ import { getTranslation } from "@/lib/i18n";
 const GITHUB_URL = "https://github.com/DARKPIX404/PaperScript";
 const RELEASES_URL = "https://github.com/DARKPIX404/PaperScript/releases";
 
-const CODE = `import { api } from "@paperscript/sdk";
+const CODE = `ps.onEnable(() => {
+  ps.logger.info("hello.ts loaded");
 
-api.commands.register("spawn", (ctx) => {
-  const player = ctx.player;
-  if (!player) return;
+  ps.commands.register("spawn", (ctx) => {
+    if (!ctx.sender.player) {
+      ctx.sender.sendMessage("<red>Players only.</red>");
+      return;
+    }
+    const player = ps.players.get(ctx.sender.name);
+    const world = player && ps.worlds.get(player.location.world);
+    if (player && world) {
+      player.teleport(world.spawnLocation);
+      player.sendMessage("<green>✦ Teleported to spawn!</green>");
+    }
+  });
 
-  const spawn = player.world.spawn;
-  player.teleport(spawn);
-  player.send(api.chat.parse("<green>✦ Teleported to spawn!</green>"));
-});
-
-api.events.on("player.join", (player) => {
-  api.server.broadcast(
-    api.chat.parse("<gradient:#3b82f6:#93c5fd>☄ \${player.name} joined!</gradient>")
-  );
-});
-
-api.logger.info("hello.ts loaded");
-`;
+  ps.events.onPlayerJoin((event) => {
+    ps.server.broadcast(
+      "<gradient:#3b82f6:#93c5fd>☄ \${event.player.name} joined!</gradient>"
+    );
+  });
+});`;
 
 const featureIcons = [Code2, Zap, RefreshCw, MessageSquare, Database, Layers];
 
@@ -114,6 +117,15 @@ export function PaperScriptPage() {
                   {t("psCtaDownload")}
                 </Button>
               </a>
+              <Link href="/paperscript/docs">
+                <Button
+                  variant="outline"
+                  className="border-slate-600/50 text-slate-200 hover:bg-slate-800/50 hover:text-white px-6 py-5 text-base bg-slate-900/20"
+                >
+                  <Code2 className="w-4 h-4 mr-2" />
+                  {t("psCtaDocs")}
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -199,19 +211,19 @@ export function PaperScriptPage() {
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-white font-semibold">{t("psMatrixModern")}</span>
                     <Badge className="bg-blue-950/60 text-blue-300 border border-blue-900/60 text-xs">
-                      v0.1
+                      v0.2
                     </Badge>
                   </div>
                   <p className="text-sm text-slate-400">{t("psMatrixModernDesc")}</p>
                 </div>
-                <div className="rounded-lg border border-slate-800 bg-[#0a0a0f] p-4">
+                <div className="rounded-lg border border-blue-900/50 bg-blue-950/30 p-4">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-slate-300 font-semibold">{t("psMatrixLegacy")}</span>
-                    <Badge variant="secondary" className="bg-slate-800/60 text-slate-300 border border-slate-700 text-xs">
-                      v1.1
+                    <span className="text-white font-semibold">{t("psMatrixLegacy")}</span>
+                    <Badge className="bg-blue-950/60 text-blue-300 border border-blue-900/60 text-xs">
+                      v0.2
                     </Badge>
                   </div>
-                  <p className="text-sm text-slate-500">{t("psMatrixLegacyDesc")}</p>
+                  <p className="text-sm text-slate-400">{t("psMatrixLegacyDesc")}</p>
                 </div>
               </div>
             </CardContent>
