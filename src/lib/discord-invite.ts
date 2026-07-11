@@ -11,6 +11,7 @@ export async function getDiscordInvite(inviteCode: string): Promise<DiscordInvit
   try {
     const res = await fetch(`https://discord.com/api/v10/invites/${inviteCode}?with_counts=true`, {
       headers: { Accept: "application/json" },
+      signal: AbortSignal.timeout(30000),
       next: { revalidate: 3600 },
     });
 

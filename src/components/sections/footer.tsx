@@ -14,6 +14,14 @@ export function Footer() {
         <Link href="/" className="text-sm font-semibold text-slate-300 tracking-wider">
           DARKPIX.RU
         </Link>
+        <a
+          href="https://discord.gg/vibecoders"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-[#5865F2] hover:text-[#00d4ff] transition-colors"
+        >
+          VibeCoders Community →
+        </a>
         <p className="text-sm text-slate-500">
           &copy; {new Date().getFullYear()} Darkpix. {t("footerRights")}
         </p>
