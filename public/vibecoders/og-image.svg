@@ -1,0 +1,30 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#050508"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1249b6"/>
+      <stop offset="50%" stop-color="#6b21a8"/>
+      <stop offset="100%" stop-color="#00d4ff"/>
+    </linearGradient>
+    <filter id="neon" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g opacity="0.15">
+    <text x="60" y="80" font-family="monospace" font-size="14" fill="#00d4ff">01001010 01101111 01101001 01101110</text>
+    <text x="60" y="105" font-family="monospace" font-size="14" fill="#1249b6">01110110 01101001 01100010 01100101</text>
+    <text x="60" y="130" font-family="monospace" font-size="14" fill="#6b21a8">01100011 01101111 01100100 01100101</text>
+  </g>
+  <text x="600" y="280" font-family="Inter, Arial, sans-serif" font-size="96" font-weight="900" fill="#ffffff" text-anchor="middle" filter="url(#neon)">VIBE CODERS</text>
+  <text x="600" y="350" font-family="Inter, Arial, sans-serif" font-size="32" fill="#94a3b8" text-anchor="middle">Сообщество разработчиков, дата-инженеров и энтузиастов AI</text>
+  <rect x="420" y="420" width="360" height="64" rx="8" fill="none" stroke="url(#glow)" stroke-width="2"/>
+  <text x="600" y="462" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">discord.gg/vibecoders</text>
+</svg>

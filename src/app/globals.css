@@ -113,3 +113,12 @@ html {
 .glow-text {
   text-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
 }
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
