@@ -3,10 +3,13 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu } from "lucide-react";
+import { SiDiscord } from "react-icons/si";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { useLanguage } from "@/components/language-provider";
 import { getTranslation } from "@/lib/i18n";
+
+const VIBECODERS_DISCORD = "https://discord.gg/vibecoders";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -51,6 +54,16 @@ export function Header() {
             </Link>
           ))}
           <LanguageSwitcher />
+          <a
+            href={VIBECODERS_DISCORD}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Join VibeCoders Discord"
+            className="group relative ml-2 p-2 rounded-lg text-[#5865F2] transition-all duration-300 hover:bg-[#5865F2]/10 hover:shadow-[0_0_20px_rgba(88,101,242,0.4)]"
+            title="Join VibeCoders"
+          >
+            <SiDiscord className="w-5 h-5" />
+          </a>
         </nav>
 
         <div className="flex items-center gap-2">
@@ -73,6 +86,16 @@ export function Header() {
                     {link.label}
                   </Link>
                 ))}
+                <a
+                  href={VIBECODERS_DISCORD}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center gap-2 text-[#5865F2] hover:bg-[#5865F2]/10 transition-colors py-2 px-2 rounded-md"
+                >
+                  <SiDiscord className="w-5 h-5" />
+                  VibeCoders
+                </a>
               </div>
             </SheetContent>
           </Sheet>

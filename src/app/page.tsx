@@ -6,6 +6,7 @@ import { Skills } from "@/components/sections/skills";
 import { Projects } from "@/components/sections/projects";
 import { Experience } from "@/components/sections/experience";
 import { Contact } from "@/components/sections/contact";
+import { VibeCodersCTA } from "@/components/sections/vibecoders-cta";
 import { Footer } from "@/components/sections/footer";
 import { SectionDivider } from "@/components/sections/section-divider";
 
@@ -26,6 +27,8 @@ export default function Home() {
       <Experience />
       <SectionDivider />
       <Contact />
+      <SectionDivider />
+      <VibeCodersCTA />
       <Footer />
     </main>
   );
