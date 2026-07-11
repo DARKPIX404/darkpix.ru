@@ -17,8 +17,7 @@ interface ContactItem {
 const contactsData: ContactItem[] = [
   { id: "1", platform: "GitHub", url: "https://github.com/DARKPIX404", icon: "SiGithub" },
   { id: "2", platform: "VK", url: "https://vk.com/v_darkpix", icon: "SiVk" },
-  { id: "3", platform: "Telegram", url: "https://t.me/v_darkpix", icon: "SiTelegram" },
-  { id: "4", platform: "Discord", url: "https://discord.gg/dYkUJQaU6y", icon: "SiDiscord" },
+  { id: "3", platform: "Discord", url: "https://discord.gg/dYkUJQaU6y", icon: "SiDiscord" },
 ];
 
 function getIcon(iconName: string | null) {

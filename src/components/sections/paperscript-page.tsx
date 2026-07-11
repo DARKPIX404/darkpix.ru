@@ -13,6 +13,7 @@ import {
   Database,
   Layers,
 } from "lucide-react";
+import { SiDiscord } from "react-icons/si";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -236,6 +237,15 @@ export function PaperScriptPage() {
             DARKPIX.RU
           </Link>
           <p className="text-xs text-slate-600">PaperScript · MIT · &copy; {new Date().getFullYear()} DARKPIX404</p>
+          <a
+            href="https://discord.gg/dYkUJQaU6y"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-400 hover:text-blue-400 transition-colors"
+            title="Discord"
+          >
+            <SiDiscord className="w-5 h-5" />
+          </a>
         </div>
       </footer>
     </main>
