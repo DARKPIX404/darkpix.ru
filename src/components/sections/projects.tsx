@@ -15,6 +15,7 @@ interface Project {
   descKey: TranslationKey;
   image: string | null;
   liveUrl: string | null;
+  liveLabelKey?: TranslationKey;
   githubUrl: string | null;
   stack: string;
 }
@@ -67,6 +68,7 @@ export function Projects() {
       descKey: "project5Desc",
       image: "/paperscript-cover.svg",
       liveUrl: "/paperscript/",
+      liveLabelKey: "projectOpen",
       githubUrl: "https://github.com/DARKPIX404/PaperScript",
       stack: "Java,GraalJS,TypeScript,Paper",
     },
@@ -232,7 +234,7 @@ function ProjectCard({ project, lang }: { project: Project; lang: string }) {
               className="inline-flex items-center text-sm text-blue-400 hover:text-blue-300 transition-colors"
             >
               <ExternalLink className="w-3.5 h-3.5 mr-1" />
-              {t("projectLiveDemo")}
+              {t(project.liveLabelKey ?? "projectLiveDemo")}
             </a>
           )}
           {project.githubUrl && (

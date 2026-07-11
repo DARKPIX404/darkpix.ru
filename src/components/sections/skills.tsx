@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import * as SiIcons from "react-icons/si";
+import { Activity, Monitor } from "lucide-react";
 import { useLanguage } from "@/components/language-provider";
 import { getTranslation } from "@/lib/i18n";
 
@@ -10,7 +11,7 @@ interface Skill {
   name: string;
   icon: string;
   glowColor: string;
-  category: "frontend" | "tools" | "other";
+  category: "frontend" | "tools" | "devops" | "other";
 }
 
 const skillsData: Skill[] = [
@@ -21,19 +22,30 @@ const skillsData: Skill[] = [
   { id: "5", name: "JavaScript", icon: "SiJavascript", glowColor: "#F7DF1E", category: "frontend" },
   { id: "6", name: "Git", icon: "SiGit", glowColor: "#F05032", category: "tools" },
   { id: "7", name: "GitHub", icon: "SiGithub", glowColor: "#ffffff", category: "tools" },
-  { id: "8", name: "Node.js", icon: "SiNodedotjs", glowColor: "#339933", category: "other" },
+  { id: "8", name: "GitHub Actions", icon: "SiGithubactions", glowColor: "#2088FF", category: "tools" },
+  { id: "9", name: "Docker", icon: "SiDocker", glowColor: "#2496ED", category: "devops" },
+  { id: "10", name: "Nginx", icon: "SiNginx", glowColor: "#009639", category: "devops" },
+  { id: "11", name: "PostgreSQL", icon: "SiPostgresql", glowColor: "#4169E1", category: "devops" },
+  { id: "12", name: "Proxmox", icon: "SiProxmox", glowColor: "#E57000", category: "devops" },
+  { id: "13", name: "Ubuntu", icon: "SiUbuntu", glowColor: "#E95420", category: "devops" },
+  { id: "14", name: "Zabbix", icon: "Activity", glowColor: "#CC0000", category: "devops" },
+  { id: "15", name: "Windows Server", icon: "Monitor", glowColor: "#00A4EF", category: "devops" },
+  { id: "16", name: "Node.js", icon: "SiNodedotjs", glowColor: "#339933", category: "other" },
 ];
 
-const categories: { key: "frontend" | "tools" | "other"; labelKey: "skillsFrontend" | "skillsTools" | "skillsOther" }[] = [
+const categories: { key: "frontend" | "tools" | "devops" | "other"; labelKey: "skillsFrontend" | "skillsTools" | "skillsDevops" | "skillsOther" }[] = [
   { key: "frontend", labelKey: "skillsFrontend" },
   { key: "tools", labelKey: "skillsTools" },
+  { key: "devops", labelKey: "skillsDevops" },
   { key: "other", labelKey: "skillsOther" },
 ];
 
 function SkillCard({ skill, index }: { skill: Skill; index: number }) {
   const color = skill.glowColor || "#3b82f6";
   const glow = `${color}66`;
-  const IconComp = (SiIcons as Record<string, React.ElementType>)[skill.icon];
+  const IconComp = skill.icon.startsWith("Si")
+    ? (SiIcons as Record<string, React.ElementType>)[skill.icon]
+    : ({ Activity, Monitor } as Record<string, React.ElementType>)[skill.icon];
 
   return (
     <motion.div

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Github, Download, Code2, Zap, RefreshCw, MessageSquare } from "lucide-react";
+import { Github, ArrowRight, Code2, Zap, RefreshCw, MessageSquare } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,7 +10,6 @@ import { useLanguage } from "@/components/language-provider";
 import { getTranslation } from "@/lib/i18n";
 
 const GITHUB_URL = "https://github.com/DARKPIX404/PaperScript";
-const RELEASES_URL = "https://github.com/DARKPIX404/PaperScript/releases";
 
 const featureIcons = [Code2, Zap, RefreshCw, MessageSquare];
 const featureKeys = [
@@ -108,13 +107,13 @@ export function FeaturedProject() {
                   {t("psCtaGithub")}
                 </Button>
               </a>
-              <a href={RELEASES_URL} target="_blank" rel="noopener noreferrer">
+              <a href="/paperscript/">
                 <Button
                   variant="outline"
                   className="border-slate-600/50 text-slate-200 hover:bg-slate-800/50 hover:text-white px-6 py-5 text-base bg-slate-900/20"
                 >
-                  <Download className="w-4 h-4 mr-2" />
-                  {t("psCtaDownload")}
+                  <ArrowRight className="w-4 h-4 mr-2" />
+                  {t("psCtaOpen")}
                 </Button>
               </a>
             </div>
