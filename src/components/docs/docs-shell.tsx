@@ -81,6 +81,14 @@ export function DocsShell({ active, children }: DocsShellProps) {
               Releases ↗
             </a>
             <a
+              href="https://hangar.papermc.io/DARKPIX/PaperScript"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block rounded-lg px-3 py-2 text-sm text-slate-400 hover:text-slate-200 hover:bg-slate-900/60 transition-colors"
+            >
+              Hangar ↗
+            </a>
+            <a
               href="https://www.npmjs.com/package/@paperscript/sdk"
               target="_blank"
               rel="noopener noreferrer"
