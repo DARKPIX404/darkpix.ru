@@ -66,7 +66,7 @@ export function Header({ memberCount }: HeaderProps) {
               onClick={openModal}
               aria-label="Join VibeCoders Discord"
               className="group relative ml-2 p-2 rounded-lg text-[#5865F2] transition-all duration-300 hover:bg-[#5865F2]/10 hover:shadow-[0_0_20px_rgba(88,101,242,0.4)]"
-              title="Join VibeCoders"
+              title="Join Discord Community"
             >
               <SiDiscord className="w-5 h-5" />
             </button>
@@ -80,7 +80,7 @@ export function Header({ memberCount }: HeaderProps) {
               onClick={openModal}
               aria-label="Join VibeCoders Discord"
               className="md:hidden p-2 rounded-lg text-[#5865F2] transition-all duration-300 hover:bg-[#5865F2]/10"
-              title="Join VibeCoders"
+              title="Join Discord Community"
             >
               <SiDiscord className="w-5 h-5" />
             </button>

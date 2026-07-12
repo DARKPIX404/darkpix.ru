@@ -129,7 +129,7 @@ export function DocsShell({ active, children }: DocsShellProps) {
           <Link href="/" className="text-sm font-semibold text-slate-300 tracking-wider hover:text-blue-400 transition-colors">
             DARKPIX.RU
           </Link>
-          <p className="text-xs text-slate-600">PaperScript Docs · MIT · &copy; {new Date().getFullYear()} DARKPIX404</p>
+          <p className="text-xs text-slate-600">PaperScript Docs · MIT · &copy; {new Date().getFullYear()} DARKPIX</p>
         </div>
       </footer>
     </main>
