@@ -1,51 +1,41 @@
-# DARKPIX.RU — Portfolio
+# Portfolio Redesign — DARKPIX
 
-Personal portfolio of a frontend developer. Built with **Next.js**, **Tailwind CSS**, and **TypeScript**.
+Альтернативная версия портфолио **DARKPIX (Vladislav Borodatyi)** в папке
+`projects/portfolio-redesign/`. Содержимое (секции, проекты, опыт, стек) — то
+же, что и в `projects/portfolio/`, но оформлено в современном редизайне:
 
-🔗 **Live**: [https://darkpix.ru](https://darkpix.ru) *(или GitHub Pages URL)*
+- **Bento-grid** раскладка для About, Skills и Projects
+- **Glassmorphism**: полупрозрачные карточки с `backdrop-blur`, тонкие границы
+- **Aurora-градиенты**: анимированные размытые blob’ы в Hero
+- **Gradient text** для акцентов и CTA
+- Адаптивная тёмная тема с фоновой сеткой
 
----
+## Источники вдохновения
 
-## About
+- [Bento Grid Design: 40+ Examples](https://mukeshkdesigns.com/blogs/bento-grid-design-inspiration/)
+- [Glassmorphism Web Design with Code Examples](https://natebal.com/glassmorphism-web-design/)
+- [32 Best Web Developer Portfolio Website Examples](https://createtoday.io/examples?category)
 
-I'm a self-taught developer with a passion for clean code and modern web technologies. My journey started back in **2017** with JavaScript and bot scripting for VK, then moved into HTML/CSS in **2018**, discovered React & Next.js in **2022**, and now I'm focused on becoming a fullstack developer while building my own projects.
+## Стек
 
----
+- Next.js 16 (App Router) + TypeScript
+- Tailwind CSS 4
+- Framer Motion
+- Lucide React + React Icons
+- ESLint
 
-## What's on the site
+## Запуск
 
-| Section | Description |
-|---------|-------------|
-| **Hero** | Full-screen intro with animated background and call-to-action buttons |
-| **About** | Quick stats and a short bio |
-| **Skills** | Tech stack with custom glow effects (React, Next.js, TypeScript, Tailwind, JavaScript, Git) |
-| **Projects** | Featured projects with image placeholders and tech badges |
-| **Experience** | Interactive timeline from 2017 to 2026 |
-| **Contact** | Email button and social links (GitHub, VK, Telegram, Discord) |
+```bash
+cd projects/portfolio-redesign
+npm run dev        # http://localhost:3000
+npm run build      # продакшн-сборка
+npm run lint       # ESLint
+```
 
----
+## Структура
 
-## Tech Stack
-
-- **Framework**: [Next.js](https://nextjs.org/) 16
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) v4
-- **UI**: [shadcn/ui](https://ui.shadcn.com/)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **Icons**: [Lucide React](https://lucide.dev/) + [React Icons](https://react-icons.github.io/react-icons/)
-- **Language**: TypeScript
-
----
-
-## Contact
-
-- **Email**: [vlad.borodaty228032qw@gmail.com](mailto:vlad.borodaty228032qw@gmail.com)
-- **GitHub**: [@DARKPIX404](https://github.com/DARKPIX404)
-- **VK**: [vk.com/v_darkpix](https://vk.com/v_darkpix)
-- **Telegram**: [t.me/v_darkpix](https://t.me/v_darkpix)
-- **Discord**: [discord.gg/xBvRgsJEZV](https://discord.gg/xBvRgsJEZV)
-
----
-
-## Deployment
-
-The site is automatically deployed to **GitHub Pages** via GitHub Actions on every push to `main`.
+- `app/page.tsx` — композиция секций
+- `components/sections/` — секции страницы
+- `components/ui/` — UI-компоненты (Button, Card, Badge, Sheet)
+- `public/` — изображения и favicon
