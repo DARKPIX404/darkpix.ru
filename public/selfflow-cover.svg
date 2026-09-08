@@ -1,0 +1,21 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#171430"/>
+      <stop offset="100%" stop-color="#02040a"/>
+    </linearGradient>
+    <linearGradient id="phone" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#675dd8"/>
+      <stop offset="100%" stop-color="#3f3a8c"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect x="340" y="70" width="120" height="220" rx="20" fill="#0b1221" stroke="#1e293b" stroke-width="2"/>
+  <rect x="352" y="82" width="96" height="196" rx="12" fill="url(#phone)" opacity="0.9"/>
+  <path d="M370 240 C385 235 390 215 390 195 C390 175 395 155 410 148" stroke="#ffffff" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <circle cx="424" cy="242" r="6" fill="#ffffff"/>
+  <rect x="368" y="110" width="40" height="8" rx="4" fill="#ffffff" opacity="0.5"/>
+  <rect x="368" y="126" width="56" height="8" rx="4" fill="#ffffff" opacity="0.3"/>
+  <text x="400" y="370" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="700" fill="#f8fafc" text-anchor="middle">SelfFlow</text>
+  <text x="400" y="405" font-family="Inter, Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Android app for self-development</text>
+</svg>

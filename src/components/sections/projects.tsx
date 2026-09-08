@@ -72,6 +72,26 @@ export function Projects() {
       githubUrl: "https://github.com/DARKPIX404/PaperScript",
       stack: "Java,GraalJS,TypeScript,Paper",
     },
+    {
+      id: "6",
+      titleKey: "project6Title",
+      descKey: "project6Desc",
+      image: "/selfflow-cover.svg",
+      liveUrl: "https://darkpix404.github.io/SelfFlow/",
+      liveLabelKey: "projectOpen",
+      githubUrl: "https://github.com/DARKPIX404/SelfFlow",
+      stack: "Kotlin,Jetpack Compose,Room,Hilt",
+    },
+    {
+      id: "7",
+      titleKey: "project7Title",
+      descKey: "project7Desc",
+      image: "/textbook-cover.svg",
+      liveUrl: "https://book.darkpix.ru/",
+      liveLabelKey: "projectOpen",
+      githubUrl: "https://github.com/DARKPIX404/fullstack-devops-textbook",
+      stack: "Astro,Starlight,TypeScript",
+    },
   ];
 
   const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
