@@ -77,7 +77,7 @@ export function Projects() {
       titleKey: "project6Title",
       descKey: "project6Desc",
       image: "/selfflow-cover.svg",
-      liveUrl: "/selfflow/",
+      liveUrl: "https://selfflow.darkpix.ru/",
       liveLabelKey: "projectOpen",
       githubUrl: "https://github.com/DARKPIX404/SelfFlow",
       stack: "Svelte,Capacitor,TypeScript,PocketBase",
