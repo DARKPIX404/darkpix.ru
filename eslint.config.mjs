@@ -14,6 +14,7 @@ const eslintConfig = defineConfig([
     "dist/**",
     "admin-backup/**",
     "public/selfflow/**",
+    "selfflow/**",
     "next-env.d.ts",
   ]),
 ]);
