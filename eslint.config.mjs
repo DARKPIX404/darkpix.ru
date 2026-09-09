@@ -13,6 +13,7 @@ const eslintConfig = defineConfig([
     "build/**",
     "dist/**",
     "admin-backup/**",
+    "public/selfflow/**",
     "next-env.d.ts",
   ]),
 ]);

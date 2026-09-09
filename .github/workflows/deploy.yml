@@ -29,6 +29,31 @@ jobs:
       - name: Install dependencies
         run: bun install
 
+      # --- SelfFlow: собираем веб-приложение и встраиваем как подсайт /selfflow/ ---
+      - name: Checkout SelfFlow
+        uses: actions/checkout@v4
+        with:
+          repository: DARKPIX404/SelfFlow
+          path: selfflow
+
+      - name: Setup Node for SelfFlow build
+        uses: actions/setup-node@v4
+        with:
+          node-version: '26'
+          cache: npm
+          cache-dependency-path: selfflow/web/package-lock.json
+
+      - name: Build SelfFlow web
+        working-directory: selfflow/web
+        run: |
+          npm ci
+          npx vite build --base=/selfflow/
+
+      - name: Embed SelfFlow into site
+        run: |
+          mkdir -p public/selfflow
+          cp -r selfflow/web/dist/* public/selfflow/
+
       - name: Build with Next.js
         run: bun run build
 
