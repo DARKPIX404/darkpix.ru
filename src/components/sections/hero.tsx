@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Send } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Send } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../../../public/darkpix-logo.png";
@@ -44,10 +44,10 @@ export function Hero() {
               {t("heroDesc")}
             </p>
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-              <Link href="#projects">
+              <Link href="https://veylo.darkpix.ru/" target="_blank" rel="noopener noreferrer">
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-5 text-base glow-blue">
-                  <ArrowDown className="w-4 h-4 mr-2" />
-                  {t("heroViewProjects")}
+                  <ArrowUpRight className="w-4 h-4 mr-2" />
+                  VEYLO
                 </Button>
               </Link>
               <a

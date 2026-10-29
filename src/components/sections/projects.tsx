@@ -27,6 +27,16 @@ export function Projects() {
 
   const projectsData: Project[] = [
     {
+      id: "access-panel",
+      titleKey: "project8Title",
+      descKey: "project8Desc",
+      image: "/access-panel-cover.svg",
+      liveUrl: "/access-panel/",
+      liveLabelKey: "projectOpen",
+      githubUrl: "https://github.com/DARKPIX404/secure-access-orchestrator",
+      stack: "Python,FastAPI,React,Docker,OpenSSH,OpenVPN",
+    },
+    {
       id: "1",
       titleKey: "project1Title",
       descKey: "project1Desc",
@@ -76,11 +86,11 @@ export function Projects() {
       id: "6",
       titleKey: "project6Title",
       descKey: "project6Desc",
-      image: "/selfflow-cover.svg",
-      liveUrl: "https://selfflow.darkpix.ru/",
+      image: "/veylo-cover.svg",
+      liveUrl: "https://veylo.darkpix.ru/",
       liveLabelKey: "projectOpen",
-      githubUrl: "https://github.com/DARKPIX404/SelfFlow",
-      stack: "Svelte,Capacitor,TypeScript,PocketBase",
+      githubUrl: null,
+      stack: "React,TypeScript,PocketBase,SQLite",
     },
     {
       id: "7",

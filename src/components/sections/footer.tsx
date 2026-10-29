@@ -15,7 +15,7 @@ export function Footer() {
           DARKPIX.RU
         </Link>
         <p className="text-sm text-slate-500">
-          &copy; {new Date().getFullYear()} Darkpix. {t("footerRights")}
+          &copy; {new Date().getFullYear()} Владислав Бородатый. {t("footerRights")}
         </p>
       </div>
     </footer>

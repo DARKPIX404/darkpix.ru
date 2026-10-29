@@ -1,6 +1,6 @@
 # DARKPIX.RU — Portfolio
 
-Personal portfolio of a frontend developer. Built with **Next.js**, **Tailwind CSS**, and **TypeScript**.
+DevOps and Fullstack portfolio of Владислав Бородатый (@v_darkpix). Built with **Next.js**, **Tailwind CSS**, and **TypeScript**.
 
 🔗 **Live**: [https://darkpix.ru](https://darkpix.ru) *(или GitHub Pages URL)*
 
@@ -49,3 +49,19 @@ I'm a self-taught developer with a passion for clean code and modern web technol
 ## Deployment
 
 The site is automatically deployed to **GitHub Pages** via GitHub Actions on every push to `main`.
+
+## Secure Access Orchestrator
+
+Основной DevOps-кейс: `/access-panel/`, с архитектурой, результатами проверок и ссылкой на https://github.com/DARKPIX404/secure-access-orchestrator. GitHub репозитория публичный, код распространяется по авторской проприетарной лицензии. Сама административная панель не публикуется на статическом портфолио.
+
+## Работа с проектом
+
+Локальная папка: Projects/darkpix.ru. Установка: `npm ci`; проверка и статический export: `npm run build`. GitHub Pages автоматически публикует `out/` после push в main. Смена хостинга не требуется. Перед изменением Next.js читать локальные инструкции AGENTS.md и документацию установленной версии.
+
+## Авторские права
+
+© 2026 Владислав Бородатый. Все права защищены; условия — LICENSE. Сторонние зависимости сохраняют свои лицензии.
+
+## Избранный проект
+
+VEYLO — https://veylo.darkpix.ru/. Карточка SelfFlow заменена на VEYLO; ссылки на исходники VEYLO в featured и карточке не публикуются. Access Panel сохранён отдельным DevOps-кейсом со ссылкой на его публичный репозиторий.

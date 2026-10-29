@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useEffect, useSyncExternalStore } from "react";
 import type { Lang } from "@/lib/i18n";
 
 interface LanguageContextValue {
@@ -13,11 +13,26 @@ const LanguageContext = createContext<LanguageContextValue>({
   setLang: () => {},
 });
 
-function detectBrowserLang(): Lang {
-  if (typeof navigator === "undefined") return "en";
-  const browserLang = navigator.language || "en";
-  if (browserLang.toLowerCase().startsWith("ru")) return "ru";
-  return "en";
+let temporaryLanguage: Lang | null = null;
+
+function readLanguage(): Lang {
+  if (temporaryLanguage) return temporaryLanguage;
+  try {
+    const saved = localStorage.getItem("lang");
+    if (saved === "en" || saved === "ru") return saved;
+  } catch {
+    // Browser preferences still work when persistent storage is unavailable.
+  }
+  return navigator.language.toLowerCase().startsWith("ru") ? "ru" : "en";
+}
+
+function subscribeLanguage(onChange: () => void) {
+  window.addEventListener("storage", onChange);
+  window.addEventListener("portfolio-language", onChange);
+  return () => {
+    window.removeEventListener("storage", onChange);
+    window.removeEventListener("portfolio-language", onChange);
+  };
 }
 
 export function LanguageProvider({
@@ -27,22 +42,22 @@ export function LanguageProvider({
   children: React.ReactNode;
   defaultLang: Lang;
 }) {
-  const [lang, setLangState] = useState<Lang>(() => {
-    if (typeof window === "undefined") return defaultLang;
-    const saved = localStorage.getItem("lang") as Lang | null;
-    if (saved && (saved === "en" || saved === "ru")) {
-      return saved;
-    }
-    return detectBrowserLang();
-  });
+  // The server snapshot is also used during hydration, before reading browser preferences.
+  const lang = useSyncExternalStore(subscribeLanguage, readLanguage, () => defaultLang);
 
   useEffect(() => {
     document.documentElement.lang = lang;
   }, [lang]);
 
   const setLang = (newLang: Lang) => {
-    setLangState(newLang);
-    localStorage.setItem("lang", newLang);
+    temporaryLanguage = newLang;
+    try {
+      localStorage.setItem("lang", newLang);
+      temporaryLanguage = null;
+    } catch {
+      // Keep the language choice usable for this visit even without persistent storage.
+    }
+    window.dispatchEvent(new Event("portfolio-language"));
     document.documentElement.lang = newLang;
   };
 

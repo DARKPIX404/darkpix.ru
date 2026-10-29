@@ -10,11 +10,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://darkpix.ru"),
-  title: "DARKPIX.RU | Frontend Developer",
-  description: "I build fast, modern and responsive web applications using React, Next.js and other cool technologies.",
+  title: "DARKPIX.RU | DevOps & Fullstack",
+  description: "Web applications, Linux infrastructure and access automation. Portfolio of Vladislav Borodatyi: React, Next.js, Docker, SSH and VPN.",
   openGraph: {
-    title: "DARKPIX.RU | Frontend Developer",
-    description: "I build fast, modern and responsive web applications using React, Next.js and other cool technologies.",
+    title: "DARKPIX.RU | DevOps & Fullstack",
+    description: "Web applications, Linux infrastructure and access automation. Portfolio of Vladislav Borodatyi: React, Next.js, Docker, SSH and VPN.",
     url: "https://darkpix.ru",
     siteName: "DARKPIX.RU",
     images: [
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "DARKPIX.RU | Frontend Developer",
-    description: "I build fast, modern and responsive web applications using React, Next.js and other cool technologies.",
+    title: "DARKPIX.RU | DevOps & Fullstack",
+    description: "Web applications, Linux infrastructure and access automation. Portfolio of Vladislav Borodatyi: React, Next.js, Docker, SSH and VPN.",
     images: ["/darkpix-logo.png"],
   },
   icons: {

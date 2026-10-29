@@ -1,4 +1,5 @@
 import { Header } from "@/components/sections/header";
+import { AccessProject } from "@/components/sections/access-project";
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
 import { FeaturedProject } from "@/components/sections/featured-project";
@@ -15,15 +16,17 @@ export default async function Home() {
   const memberCount = invite ? formatMemberCount(invite.memberCount) : "1,500+";
 
   return (
-    <main className="min-h-screen bg-[#00040C]">
+    <main className="min-h-screen overflow-x-clip bg-[#00040C]">
       <Header memberCount={memberCount} />
       <Hero />
+      <SectionDivider />
+      <FeaturedProject />
+      <SectionDivider />
+      <AccessProject />
       <SectionDivider />
       <About />
       <SectionDivider />
       <Skills />
-      <SectionDivider />
-      <FeaturedProject />
       <SectionDivider />
       <Projects />
       <SectionDivider />

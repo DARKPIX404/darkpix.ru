@@ -88,10 +88,10 @@ const skillsData: Skill[] = [
 ];
 
 const categories: { key: "frontend" | "backend" | "data" | "devops" | "tools" | "mobile"; labelKey: "skillsFrontend" | "skillsBackend" | "skillsData" | "skillsDevops" | "skillsTools" | "skillsMobile" }[] = [
+  { key: "devops", labelKey: "skillsDevops" },
   { key: "frontend", labelKey: "skillsFrontend" },
   { key: "backend", labelKey: "skillsBackend" },
   { key: "data", labelKey: "skillsData" },
-  { key: "devops", labelKey: "skillsDevops" },
   { key: "tools", labelKey: "skillsTools" },
   { key: "mobile", labelKey: "skillsMobile" },
 ];
